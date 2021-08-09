@@ -8,9 +8,8 @@ The libraries and languages used are:
 * Django (version 3.2.6)
 * react.js
 * AJAX
-* pillow
 * Google fonts <a href="https://fonts.google.com/specimen/Encode+Sans">(Encode sans)</a>
 
 # Live version
-There is currently no live version of this website
+There is currently no live version of this website as it is still in development
 
