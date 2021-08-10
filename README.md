@@ -6,7 +6,7 @@ The libraries and languages used are:
 * Python (version 3.8)
 * HTML / CSS / JavaScript
 * Django (version 3.2.6)
-* react.js
+* jQuery
 * AJAX
 * Google fonts <a href="https://fonts.google.com/specimen/Encode+Sans">(Encode sans)</a>
 
