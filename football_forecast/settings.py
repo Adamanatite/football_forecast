@@ -10,22 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os
 from pathlib import Path
-from decouple import config
-
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_DIR = os.path.join(BASE_DIR, "static")
-MEDIA_DIR = os.path.join(BASE_DIR, "media")
-TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_DIR = BASE_DIR / 'static'
+MEDIA_DIR = BASE_DIR / 'media'
+TEMPLATE_DIR = BASE_DIR / 'templates'
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = 'django-insecure-ujigm)=2&&dw3cl+co2w5((hhx#ati^v4hvz*vks6%#82hrn!b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -133,8 +131,15 @@ MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = "/media/"
 
 #Setup Login Urls
+
 LOGIN_URL = "/login/"
 
 #Registration Variables
+
 REGISTRATION_OPEN = True
 REGISTRATION_AUTO_LOGIN = True
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
