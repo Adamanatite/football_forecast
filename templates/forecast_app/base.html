@@ -12,11 +12,36 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@400;600;800&display=swap" rel="stylesheet">
+    <!--JavaScript file-->
+    <script src="{% static 'js/colour.js' %}"></script>
+
+    <!--NavBar-->
+    <div class="navbar">
+        <!-- Homepage logo (and smaller logo for smaller resolutions) -->
+        <a href="{% url 'forecast_app:home' %}"><img id="navbar_logo" src="{% static 'img/logo-small.png' %}" alt="Homepage" height="50px"></a>
+        <!-- Sign up text-->
+        <a href="{% url 'forecast_app:register' %}" class="navbar_text semibold right" id="signup_text">Sign up</a>
+        <!-- Random poll text (and logo for smaller resolutions) -->
+        <a href="{% url 'forecast_app:login' %}" class="navbar_text right">Login</a>
+
+        <div class="centred">
+            <a href="{% url 'forecast_app:league_create' %}" class="navbar_text">Leagues</a>
+            <!-- Rankings text (and logo for smaller resolutions) -->
+            <a href="{% url 'forecast_app:tournaments' %}" class="navbar_text semibold">Tournaments</a>
+        </div>
+    </div>
+
     {% block head_block %}
     {% endblock %}
 </head>
 
 <body>
+    {% block above_body_block %}
+    {% endblock %}
     <div class="main">
         {% block body_block %}
         {% endblock %}

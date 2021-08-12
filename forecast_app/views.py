@@ -27,9 +27,16 @@ def player(request, player_id):
     return response
 
 
-def league_join(request):
+def league_create(request):
     # Create response render
-    response = render(request, 'forecast_app/league_join.html')
+    response = render(request, 'forecast_app/league_create.html')
+    return response
+
+
+def league_join(request, league_id):
+    context_dict = {"league_id": league_id}
+    # Create response render
+    response = render(request, 'forecast_app/league.html', context=context_dict)
     return response
 
 

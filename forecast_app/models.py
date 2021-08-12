@@ -61,8 +61,12 @@ class Match(models.Model):
     round = models.CharField(max_length=30, null=True)
     home_goals = models.IntegerField(default=0)
     away_goals = models.IntegerField(default=0)
+
     def __str__(self):
         return self.home.abbreviation + " vs " + self.away.abbreviation + " (" + self.start + ")"
+
+    class Meta:
+        verbose_name_plural = 'Matches'
 
 
 class League(models.Model):

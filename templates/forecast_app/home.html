@@ -3,9 +3,37 @@
 
 <!--Fill in page title-->
 {% block head_block %}
+       <link rel="stylesheet" href="{% static 'css/homepage.css' '%}">
        <title>Football Forecast</title>
 {% endblock %}
 
+{% block above_body_block %}
+    <div class="light_hue" id="tournament_bg_box">
+        <img src="{% static 'img/analysis.png' %}" id="analysis_board"></img>
+        <img src="{% static 'img/goal.png' %}" id="left_goal"></img>
+        <img src="{% static 'img/goal.png' %}" id="right_goal"></img>
+        <div id="halfway_line"></div>
+        <div id="halfway_circle">
+            <h3>
+                Earn points by predicting the scoreline in each match of an ongoing <span class="dark_hue">tournament!</span>
+                <div class="action_buttons">
+                    <form action="{% url 'forecast_app:tournaments' %}">
+                        <button type="submit" class="dark_hue_bg" id="tournament_button">Get started!</button>
+                    </form>
+                </div>
+            </h3>
+        </div>
+
+    </div>
+{% endblock %}
+
 {% block body_block %}
-<h1>This is the homepage!</h1>
+        <div class="main_content">
+            <h1>Create a <span class="dark_hue">League</span> and invite your friends and family to test your football knowledge against each other!</h1>
+            <div class="action_buttons">
+                <form action="{% url 'forecast_app:league_create' %}">
+                    <button type="submit" class="dark_hue dark_hue_border" id="league_button">Create a league!</button>
+                </form>
+            </div>
+        </div>
 {% endblock %}

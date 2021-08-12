@@ -1,0 +1,150 @@
+html{
+    font-size: 28%;
+    font-family: 'Encode Sans SC', sans-serif;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+.main {
+    margin-top: 100px; /* Avoid overlap with navigation bar */
+    /*Centre content horizontally*/
+    margin-left: auto;
+    margin-right: auto;
+    /*Set rule for calculating box size*/
+    box-sizing: border-box
+  }
+
+button{
+    cursor: pointer; /*Make buttons look more clickable by changing mouse icon*/
+}
+
+h1 {
+    text-align: center;
+    font-size: 9rem;
+    font-weight: 600;
+}
+
+.dark_hue {
+    font-weight: 800;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #0d0d0d;
+    position: fixed; /* Make navbar stay on top regardless of other elements*/
+    top: 0;
+    width: 100%; /* Make navbar span page */
+    height: 70px;
+    z-index: 1;
+  }
+
+  .navbar a {
+    font-size: 6rem;
+    display: inline-block;
+    color: #f7f7f7;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+ .navbar a:hover{
+    filter: brightness(0.7);
+ }
+
+ #navbar_logo {
+    position: fixed;
+    top:10px;
+    left: 30px;
+}
+
+ .centred{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    left: 35%;
+    top: 0px;
+    width: 30%;
+    height: 70px;
+ }
+
+.right{
+    float: right;
+}
+
+#signup_text {
+    padding-right: 30px;
+
+}
+
+@media only screen and (max-width: 858px) {
+
+    .navbar {
+        height: 40px;
+    }
+
+    .navbar a {
+        font-size: 4rem;
+        padding: 10px 10px;
+    }
+
+    #navbar_logo {
+        width: 30px;
+        height: 30px;
+        left: 20px;
+        top: 5px;
+    }
+
+    #signup_text{
+        padding-right: 20px;
+    }
+
+  }
+
+  @media only screen and (max-width: 597px) {
+
+    .centred {
+        display: none;
+    }
+
+  }
+
+
+
+
+.semibold{
+    font-weight: 600;
+}
+
+.action_buttons{
+    margin: 0 auto;
+    text-align: center;
+}
+/* Buttons in different forms don't take new lines */
+.action_buttons form{
+    display:inline-block
+}
+
+/* General styling for buttons */
+.action_buttons button{
+    margin: 15px;
+    padding: 6px 30px 10px 30px;
+    font-family: 'Encode Sans SC', sans-serif;
+    font-weight: 600;
+    font-size: 6rem;
+    border: none;
+    outline: none;
+    border-radius: 30pt;
+    transition: all .1s ease-in-out; /* Animation properties for when hovered on */
+    background-color: black;
+    color: #f7f7f7;
+}
+
+.action_buttons button:hover{
+    transform: scale(1.1);
+}
