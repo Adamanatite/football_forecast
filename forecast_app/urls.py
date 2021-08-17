@@ -5,7 +5,7 @@ app_name = "forecast_app"
 
 urlpatterns = [
     path("", views.homepage, name="home"),
-    path("login/", views.login, name="login"),
+    path("login/", views.login_view, name="login"),
     path("register/", views.register, name="register"),
     path("player/<int:player_id>/", views.player, name="player"),
     path("league/create/", views.league_create, name="league_create"),

@@ -24,14 +24,19 @@
         <!-- Homepage logo (and smaller logo for smaller resolutions) -->
         <a href="{% url 'forecast_app:home' %}"><img id="navbar_logo" src="{% static 'img/logo-small.png' %}" alt="Homepage" height="50px"></a>
         <!-- Sign up text-->
+        {% if user.is_authenticated %}
+            <a id="navbar_account"><img id="profile_icon" src="{% static 'img/logo-small.png' %}" alt="My Account" height="50px" width="50px"></img> </a>
+            <a href="{% url 'forecast_app:league_create' %}"><img id="league_icon" class="small_icons" src="{% static 'img/leagues.png' %}" alt="Leagues" height="30px" width="30px"></img> </a>
+            <a href="{% url 'forecast_app:tournaments' %}"><img id="tournament_icon" class="small_icons" src="{% static 'img/tournaments.png' %}" alt="Tournaments" height="30px" width="30px"></img> </a>
+        {% else %}
         <a href="{% url 'forecast_app:register' %}" class="navbar_text semibold right" id="signup_text">Sign up</a>
         <!-- Random poll text (and logo for smaller resolutions) -->
-        <a href="{% url 'forecast_app:login' %}" class="navbar_text right">Login</a>
-
+        <a href="{% url 'forecast_app:login' %}" class="navbar_text right" id="login_text">Login</a>
+        {% endif %}
         <div class="centred">
-            <a href="{% url 'forecast_app:league_create' %}" class="navbar_text">Leagues</a>
+            <a href="{% url 'forecast_app:league_create' %}" class="navbar_text" id="league_text">Leagues</a>
             <!-- Rankings text (and logo for smaller resolutions) -->
-            <a href="{% url 'forecast_app:tournaments' %}" class="navbar_text semibold">Tournaments</a>
+            <a href="{% url 'forecast_app:tournaments' %}" class="navbar_text semibold" id="tour_text">Tournaments</a>
         </div>
     </div>
 

@@ -1,5 +1,6 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
 
 # Create your views here.
 def homepage(request):
@@ -8,10 +9,27 @@ def homepage(request):
     return response
 
 
-def login(request):
-    # Create response render
-    response = render(request, 'forecast_app/login.html')
-    return response
+def login_view(request):
+    if request.method == 'POST':
+        #Get form data
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        #Check credentials
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return redirect(reverse('forecast_app:home'))
+            else:
+                #Re-render login page with error if account disabled
+                return render(request, 'forecast_app/login.html',
+                context={"error": "Your account is disabled."})
+        else:
+            # Re-render login page with error if password doesn't match
+            return render(request, 'forecast_app/login.html', context = {"error": "Your username and password don't match, try again"})
+    else:
+        return render(request, 'forecast_app/login.html')
 
 
 def register(request):
