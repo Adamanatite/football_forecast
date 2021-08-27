@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
+from forecast_app.forms import UserForm
+from forecast_app.models import UserProfile
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 def homepage(request):
@@ -33,8 +36,31 @@ def login_view(request):
 
 
 def register(request):
+    registered = False
+
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+
+            new_user.set_password(new_user.password)
+            new_user.save()
+
+            profile = UserProfile.objects.get_or_create(user=new_user)[0]
+            if not profile.picture:
+                profile.picture = 'player_default.png'
+                profile.save()
+
+            registered = True
+            login(request, new_user)
+
+            return HttpResponseRedirect(request.POST.get('next') or reverse('forecast_app:home'))
+
+    else:
+        form = UserForm()
+
     # Create response render
-    response = render(request, 'forecast_app/register.html')
+    response = render(request, 'forecast_app/register.html', {"form": form})
     return response
 
 

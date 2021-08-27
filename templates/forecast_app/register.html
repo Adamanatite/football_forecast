@@ -8,4 +8,11 @@
 
 {% block body_block %}
 <h1>This is the registration page!</h1>
+
+<form id="register_form" method="POST" action="{% url 'forecast_app:register' %}" enctype="multipart/form-data">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit">Register!</button>
+</form>
+
 {% endblock %}
